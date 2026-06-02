@@ -39,14 +39,40 @@ body,
   background: #fbf6ef;
 }
 
-/* ---- Hero / help-center banner ----------------------------------------- */
+/* ---- Hero / help-center banner (image + warm overlay) ------------------- */
 .fw-helpcenter {
-  background: radial-gradient(1200px 420px at 82% -20%, rgba(224,164,88, 0.35), transparent 60%), linear-gradient(135deg, #c75b39, #8c3b23) !important; padding-top: 64px;
-  padding-bottom: 96px;
+  position: relative;
+  overflow: hidden;
+  background-color: #8c3b23;
+  /* Cozy cable-knit texture (Pexels, free for commercial use). Swap the URL to
+     change the photo: put any Pexels photo ID in both spots in the path. */
+  background-image: url('https://images.pexels.com/photos/6757412/pexels-photo-6757412.jpeg?auto=compress&cs=tinysrgb&w=1600');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding-top: 80px;
+  padding-bottom: 110px;
   border-radius: 0 0 28px 28px;
 }
+.fw-helpcenter::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(140,59,35,0.80), rgba(199,91,57,0.58));
+  z-index: 0;
+}
+.fw-helpcenter .container,
+.fw-helpcenter .row,
 .fw-helpcenter h1,
-.fw-helpcenter .fw-page-title { color: #fff; }
+.fw-helpcenter .fw-page-title { position: relative; z-index: 1; }
+.fw-helpcenter h1,
+.fw-helpcenter h2,
+.fw-helpcenter .fw-page-title {
+  color: #ffffff !important;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.35);
+}
+.fw-helpcenter input[type="text"],
+.fw-helpcenter input[type="search"] { color: #3a2e28 !important; }
 
 /* Search box (portal search element) */
 .fw-helpcenter input[type="text"],
