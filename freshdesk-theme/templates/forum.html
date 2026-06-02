@@ -1,0 +1,52 @@
+<!-- ============================================================================
+     CozyThreads — Forum page (topics inside a forum)
+     Paste into:  Customize → Pages → Forum / Topic list page
+     ========================================================================= -->
+<section class="ct-section">
+  <div class="ct-container">
+
+    <ul class="ct-breadcrumb">
+      <li><a href="/support/home">Help Center</a></li>
+      <li><a href="/support/discussions">Community</a></li>
+      <li>{{forum.name}}</li>
+    </ul>
+
+    <div class="ct-section__head">
+      <div>
+        <span class="ct-eyebrow">Forum</span>
+        <h1 class="ct-h" style="font-size:2rem;margin:0;">{{forum.name}}</h1>
+      </div>
+      <a class="ct-btn" href="{{forum.url}}/topics/new">+ New topic</a>
+    </div>
+
+    {% if forum.topics.size > 0 %}
+      <div class="ct-table-wrap">
+        <table class="ct-table">
+          <thead>
+            <tr><th>Topic</th><th>Replies</th><th>Last activity</th></tr>
+          </thead>
+          <tbody>
+            {% for topic in forum.topics %}
+              <tr>
+                <td>
+                  <a href="{{topic.url}}">{{topic.title}}</a>
+                  <div style="color:var(--ct-muted);font-size:0.85rem;">by {{topic.user.name}}</div>
+                </td>
+                <td style="color:var(--ct-muted);">{{topic.replies_count}}</td>
+                <td style="color:var(--ct-muted);">{{topic.updated_at | date: "%b %-d, %Y"}}</td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    {% else %}
+      <div class="ct-empty">
+        <span class="ct-empty__emoji">💬</span>
+        <h3 class="ct-h">No topics yet</h3>
+        <p>Be the first to start a conversation here.</p>
+        <p style="margin-top:16px;"><a class="ct-btn" href="{{forum.url}}/topics/new">Start a topic</a></p>
+      </div>
+    {% endif %}
+
+  </div>
+</section>

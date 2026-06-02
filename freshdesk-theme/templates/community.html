@@ -1,0 +1,33 @@
+<!-- ============================================================================
+     CozyThreads — Community home (forum categories & forums)
+     Paste into:  Customize → Pages → Community / Forum category page
+     ========================================================================= -->
+<section class="ct-section">
+  <div class="ct-container">
+
+    <div style="text-align:center;margin-bottom:32px;">
+      <span class="ct-eyebrow">Community</span>
+      <h1 class="ct-h" style="font-size:2.2rem;margin:0 0 8px;">The CozyThreads Circle</h1>
+      <p style="color:var(--ct-muted);max-width:600px;margin:0 auto;">
+        Swap styling tips, share care hacks, and help each other out.
+      </p>
+    </div>
+
+    {% for category in portal.forum_categories %}
+      <div class="ct-section__head" style="margin-top:32px;">
+        <h2 style="font-size:1.4rem;">{{category.name}}</h2>
+      </div>
+      <div class="ct-grid">
+        {% for forum in category.forums %}
+          <a class="ct-card" href="{{forum.url}}">
+            <span class="ct-card__icon">💬</span>
+            <h3>{{forum.name}}</h3>
+            <p>{{forum.description}}</p>
+            <span class="ct-card__meta">{{forum.topics_count}} topics →</span>
+          </a>
+        {% endfor %}
+      </div>
+    {% endfor %}
+
+  </div>
+</section>

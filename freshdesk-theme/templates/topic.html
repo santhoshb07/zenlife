@@ -1,0 +1,50 @@
+<!-- ============================================================================
+     CozyThreads — Topic page (single discussion thread + replies)
+     Paste into:  Customize → Pages → Topic page
+     ========================================================================= -->
+<section class="ct-section">
+  <div class="ct-container">
+
+    <ul class="ct-breadcrumb">
+      <li><a href="/support/home">Help Center</a></li>
+      <li><a href="/support/discussions">Community</a></li>
+      <li><a href="{{topic.forum.url}}">{{topic.forum.name}}</a></li>
+      <li>{{topic.title}}</li>
+    </ul>
+
+    <div class="ct-article" style="grid-template-columns:minmax(0,1fr) 280px;">
+      <article class="ct-article__body">
+        <h1 style="font-size:1.7rem;">{{topic.title}}</h1>
+        <div class="ct-article__meta">
+          Started by {{topic.user.name}} · {{topic.created_at | date: "%B %-d, %Y"}}
+        </div>
+
+        <!-- FRESHDESK: original post body -->
+        <div class="ct-article__content">{{{topic.description}}}</div>
+
+        <hr style="border:none;border-top:1px solid var(--ct-line);margin:28px 0;">
+
+        <h3 class="ct-h" style="font-size:1.2rem;">
+          {{topic.replies_count}} replies
+        </h3>
+
+        <!-- FRESHDESK: replies/comments thread -->
+        {{{comments}}}
+
+        <div class="ct-feedback" style="text-align:left;margin-top:24px;">
+          <h4>Join the conversation</h4>
+          <!-- FRESHDESK: reply form -->
+          {{reply_form}}
+        </div>
+      </article>
+
+      <aside class="ct-aside">
+        <div class="ct-card">
+          <h3 style="font-size:1.1rem;">Community guidelines</h3>
+          <p>Be kind, stay on topic, and keep it cozy. 🧶</p>
+        </div>
+      </aside>
+    </div>
+
+  </div>
+</section>
