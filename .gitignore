@@ -1,0 +1,6 @@
+# Generated theme packages (build artifacts — rebuild with zip -r)
+cozythreads-freshdesk-theme.zip
+cozythreads-freshdesk-theme.tar.gz
+
+# Generated standalone preview (rebuild from preview/home.html + theme.css)
+freshdesk-theme/preview/home-standalone.html
