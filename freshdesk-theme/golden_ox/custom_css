@@ -1,0 +1,243 @@
+/* ============================================================================
+   CozyThreads — warm & cozy overrides for the Freshdesk "golden_ox" portal.
+   Targets the real golden_ox classes (fw-*, Bootstrap, .card, .btn) so the
+   look applies on top of Freshdesk's compiled stylesheet without touching any
+   page template / Liquid logic. Brand colors also live in `preferences`; this
+   file adds typography, rounded shapes, warm shadows and hover polish.
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  --ct-terracotta: #c75b39;
+  --ct-clay:       #8c3b23;
+  --ct-sage:       #6b8e5a;
+  --ct-gold:       #e0a458;
+  --ct-cream:      #fbf6ef;
+  --ct-sand:       #fff9f2;
+  --ct-ink:        #3a2e28;
+  --ct-muted:      #7a6a5f;
+  --ct-line:       #ece0d3;
+
+  --ct-font-head: "Fraunces", "Playfair Display", Georgia, serif;
+  --ct-font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+  --ct-radius: 14px;
+  --ct-shadow-card: 0 4px 18px rgba(140, 59, 35, 0.08);
+  --ct-shadow-raised: 0 12px 32px rgba(140, 59, 35, 0.16);
+}
+
+/* ---- Typography --------------------------------------------------------- */
+body,
+.fw-main-wrapper,
+p, li, a, span, input, textarea, select, button, .card-body {
+  font-family: var(--ct-font-body);
+}
+h1, h2, h3, h4, h5,
+.fw-page-title,
+.card-title,
+.fw-section-heading h2,
+.fw-section-heading h3 {
+  font-family: var(--ct-font-head) !important;
+  letter-spacing: -0.01em;
+  color: var(--ct-ink);
+}
+body { color: var(--ct-ink); -webkit-font-smoothing: antialiased; }
+
+/* ---- Page + main canvas ------------------------------------------------- */
+body,
+.fw-main-wrapper { background: var(--ct-cream); }
+
+/* ---- Top navigation ----------------------------------------------------- */
+.fw-nav-wrapper,
+.fw-nav-wrapper .bg-light {
+  background: var(--ct-sand) !important;
+  border-bottom: 1px solid var(--ct-line);
+}
+.navbar .nav-link {
+  color: var(--ct-ink);
+  font-weight: 500;
+  border-radius: 999px;
+  transition: background .15s ease, color .15s ease;
+}
+.navbar .nav-link:hover,
+.navbar .nav-item.active .nav-link {
+  color: var(--ct-clay);
+  background: var(--ct-cream);
+}
+
+/* ---- Hero / help-center banner ----------------------------------------- */
+.fw-helpcenter {
+  background:
+    radial-gradient(1200px 420px at 82% -20%, rgba(224,164,88,.35), transparent 60%),
+    linear-gradient(135deg, var(--ct-terracotta), var(--ct-clay)) !important;
+  padding-top: 64px;
+  padding-bottom: 96px;
+  border-radius: 0 0 28px 28px;
+}
+.fw-helpcenter h1,
+.fw-helpcenter .fw-page-title { color: #fff; }
+
+/* Search box (rendered by {{ portal | search_element }}) */
+.fw-helpcenter input[type="text"],
+.fw-helpcenter input[type="search"],
+.fw-searchbar-wrapper input[type="text"],
+.fw-searchbar-wrapper input[type="search"] {
+  border-radius: 999px !important;
+  border: 1.5px solid transparent;
+  box-shadow: var(--ct-shadow-card);
+  padding-left: 20px;
+}
+.fw-searchbar-wrapper {
+  background: var(--ct-sand);
+  border-bottom: 1px solid var(--ct-line);
+}
+
+/* ---- Cards (home cards, KB cards, forum cards) ------------------------- */
+.card,
+.fw-kbase-card,
+.fw-horizontal {
+  background: #fff;
+  border: 1px solid var(--ct-line) !important;
+  border-radius: var(--ct-radius) !important;
+  box-shadow: var(--ct-shadow-card);
+  transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+}
+.card:hover,
+.fw-kbase-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--ct-shadow-raised);
+  border-color: rgba(199,91,57,.4) !important;
+}
+.card-title { color: var(--ct-ink); }
+.card-body p { color: var(--ct-muted); }
+
+/* Category / card icon chips */
+.fw-category-icon,
+.fw-icon-holder {
+  color: var(--ct-terracotta);
+}
+.fw-category-icon {
+  background: var(--ct-cream);
+  border-radius: var(--ct-radius);
+}
+
+/* ---- Section headings --------------------------------------------------- */
+.fw-section-heading h2,
+.fw-section-heading h3 { color: var(--ct-ink); }
+.fw-section-heading a { color: var(--ct-terracotta); font-weight: 600; }
+.fw-section-heading a:hover { color: var(--ct-clay); }
+
+/* ---- Solution category blocks ------------------------------------------ */
+.fw-category-wrapper {
+  background: #fff !important;
+  border: 1px solid var(--ct-line);
+  border-radius: var(--ct-radius) !important;
+  box-shadow: var(--ct-shadow-card);
+}
+.fw-folder .fw-heading,
+.fw-article { color: var(--ct-ink); }
+.fw-folder .fw-heading:hover,
+.fw-article:hover { color: var(--ct-clay); }
+
+/* ---- Article / ticket content wrappers --------------------------------- */
+.fw-wrapper-shadow {
+  background: #fff !important;
+  border: 1px solid var(--ct-line);
+  border-radius: var(--ct-radius) !important;
+  box-shadow: var(--ct-shadow-card);
+}
+.fw-content { color: var(--ct-ink); line-height: 1.75; }
+.fw-content h1, .fw-content h2, .fw-content h3 { font-family: var(--ct-font-head) !important; }
+.fw-content pre, .fw-content code {
+  background: var(--ct-cream);
+  border-radius: 8px;
+}
+.fw-content blockquote {
+  border-left: 4px solid var(--ct-gold);
+  background: var(--ct-sand);
+  border-radius: 0 8px 8px 0;
+  padding: 4px 18px;
+  color: var(--ct-muted);
+}
+.fw-sidebar,
+aside.bg-grey {
+  background: var(--ct-sand) !important;
+  border-radius: var(--ct-radius);
+  border: 1px solid var(--ct-line);
+}
+
+/* ---- Buttons ------------------------------------------------------------ */
+.btn-primary {
+  background: var(--ct-terracotta) !important;
+  border-color: var(--ct-terracotta) !important;
+  border-radius: 999px !important;
+  font-weight: 600;
+  box-shadow: var(--ct-shadow-card);
+  transition: transform .12s ease, background .15s ease, box-shadow .15s ease;
+}
+.btn-primary:hover,
+.btn-primary:focus {
+  background: var(--ct-clay) !important;
+  border-color: var(--ct-clay) !important;
+  transform: translateY(-1px);
+  box-shadow: var(--ct-shadow-raised);
+}
+.btn-outline-primary {
+  color: var(--ct-terracotta) !important;
+  border-color: var(--ct-line) !important;
+  border-radius: 999px !important;
+  font-weight: 600;
+}
+.btn-outline-primary:hover {
+  background: var(--ct-sand) !important;
+  color: var(--ct-clay) !important;
+  border-color: var(--ct-terracotta) !important;
+}
+.btn { border-radius: 999px; }
+
+/* ---- Forms (new ticket, login, signup) --------------------------------- */
+.form-control,
+input[type="text"], input[type="email"], input[type="password"],
+textarea, select {
+  border-radius: 10px !important;
+  border: 1.5px solid var(--ct-line);
+  transition: border-color .15s ease, box-shadow .15s ease;
+}
+.form-control:focus,
+input:focus, textarea:focus, select:focus {
+  border-color: var(--ct-terracotta) !important;
+  box-shadow: 0 0 0 4px rgba(199,91,57,.12) !important;
+}
+label { color: var(--ct-ink); font-weight: 600; }
+
+/* ---- Links -------------------------------------------------------------- */
+a { color: var(--ct-terracotta); }
+a:hover { color: var(--ct-clay); }
+
+/* ---- Page title band (sub-pages) --------------------------------------- */
+.fw-page-title-wrapper { background: var(--ct-sand); }
+.fw-page-title-wrapper .fw-page-title { color: var(--ct-ink); }
+.fw-page-title-wrapper .fw-icon-holder { color: var(--ct-terracotta); }
+
+/* ---- Tables (ticket lists) --------------------------------------------- */
+.table thead th {
+  background: var(--ct-sand);
+  color: var(--ct-muted);
+  text-transform: uppercase;
+  font-size: .78rem;
+  letter-spacing: .05em;
+  border-color: var(--ct-line);
+}
+.table td { border-color: var(--ct-line); }
+.table tbody tr:hover { background: var(--ct-cream); }
+
+/* ---- Soft section backgrounds ------------------------------------------ */
+.bg-light { background: var(--ct-sand) !important; }
+
+/* ---- Footer ------------------------------------------------------------- */
+footer { background: var(--ct-ink); }
+footer, footer p, footer a, .fw-contacts, .fw-laws, .fw-credit {
+  color: var(--ct-cream) !important;
+}
+footer a:hover { color: var(--ct-gold) !important; }

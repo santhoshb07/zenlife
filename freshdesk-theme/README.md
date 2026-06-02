@@ -4,10 +4,46 @@ A warm, cozy custom theme for the **CozyThreads** Freshdesk support portal.
 Earthy terracotta + cream palette, soft rounded cards, friendly serif headings —
 built to feel like the brand: comfortable, handmade, inviting.
 
-> Freshdesk doesn't accept a single uploaded "theme file." Instead you paste
-> each piece into the matching slot under **Admin → Channels → Portals →
-> [your portal] → Customize**. This repo mirrors those slots one-to-one so you
-> can copy/paste with confidence.
+There are **two ways** to apply this theme, and this repo supports both:
+
+1. **Upload the theme ZIP (recommended).** `golden_ox/` is the real, uploadable
+   theme — it was built by exporting CozyThreads' own portal theme and merging
+   the brand into it (`preferences` colors, `custom_css`, `meta` name), so it
+   keeps every filename, `{% element %}`/`{% snippet %}` block, and file order
+   Freshdesk requires. Zip it and upload under **Customize → Themes**.
+2. **Paste method (no upload).** The `templates/`, `assets/css/theme.css`, and
+   `assets/js/theme.js` files are friendly, hand-authored versions you can paste
+   into the portal editor page-by-page. Good for learning/tweaking, but the ZIP
+   in option 1 is what actually imports.
+
+> ⚠️ Freshdesk rejects ZIPs whose filenames/structure don't match what it
+> exported ("file format is not supported"). Never rename the `golden_ox/`
+> files or change their order — always start from a fresh portal export.
+
+---
+
+## Uploadable theme — `golden_ox/`
+
+Build the ZIP from the repo and upload it:
+
+```bash
+cd freshdesk-theme
+zip -X -r ../cozythreads-theme.zip golden_ox
+```
+
+Then **Admin → Channels → Portals → Customize → Themes → Upload theme →**
+select the zip → **Apply Theme**.
+
+What was changed vs. the stock export (everything else is byte-identical):
+- `golden_ox/preferences` — warm palette (terracotta `#C75B39`, cream `#FBF6EF`,
+  ink `#3A2E28`, etc.) mapped onto Freshdesk's native color keys.
+- `golden_ox/custom_css` — was empty; now ~8 KB of cozy polish (serif headings,
+  rounded cards, warm shadows, hover lifts, gradient hero) targeting the real
+  `fw-*` / Bootstrap / `.card` / `.btn` classes.
+- `golden_ox/meta` — theme display name set to `CozyThreads`.
+
+To re-skin: edit the hex values in `golden_ox/preferences` and/or the `:root`
+tokens at the top of `golden_ox/custom_css`, then re-zip.
 
 ---
 

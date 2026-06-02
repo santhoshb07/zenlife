@@ -1,0 +1,17 @@
+{% if  portal.current_page != "csat_survey" %}
+ <footer class="container-fluid px-0">
+   <section class="fw-contact-info">
+     <p class="fw-contacts">
+       {{ portal | footer_contact_info }}
+     </p>
+   </section>
+   <section class="fw-credit">
+     <nav class="fw-laws">
+        {{ portal | footer_copyright }}
+        {{ portal | footer_cookie_law }}
+        {{ portal | footer_privacy_law }}
+        {{ portal | default_cookie_policy_settings }}
+     </nav>
+   </section>
+ </footer>
+{% endif %}
