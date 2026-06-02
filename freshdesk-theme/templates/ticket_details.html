@@ -1,0 +1,57 @@
+<!-- ============================================================================
+     CozyThreads — Ticket details page (single ticket + conversation + reply)
+     Paste into:  Customize → Pages → Ticket details page
+     ========================================================================= -->
+<section class="ct-section">
+  <div class="ct-container">
+
+    <ul class="ct-breadcrumb">
+      <li><a href="/support/home">Help Center</a></li>
+      <li><a href="/support/tickets">My tickets</a></li>
+      <li>#{{ticket.id}}</li>
+    </ul>
+
+    <div class="ct-article" style="grid-template-columns:minmax(0,1fr) 300px;">
+      <!-- Conversation -->
+      <article class="ct-article__body">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap;">
+          <h1 style="font-size:1.6rem;margin:0;">{{ticket.subject}}</h1>
+          <span data-ct-status="{{ticket.status_name}}">{{ticket.status_name}}</span>
+        </div>
+        <div class="ct-article__meta">
+          Opened {{ticket.created_at | date: "%B %-d, %Y"}} · Ref #{{ticket.id}}
+        </div>
+
+        <!-- FRESHDESK: original description + full conversation thread -->
+        <div class="ct-article__content">
+          {{{ticket.description}}}
+        </div>
+
+        <hr style="border:none;border-top:1px solid var(--ct-line);margin:28px 0;">
+
+        <h3 class="ct-h" style="font-size:1.2rem;">Add a reply</h3>
+        <!-- FRESHDESK: reply box / note form injected here -->
+        {{reply_form}}
+      </article>
+
+      <!-- Sidebar: ticket properties -->
+      <aside class="ct-aside">
+        <div class="ct-card">
+          <h3 style="font-size:1.1rem;">Details</h3>
+          <p style="margin:6px 0;"><strong>Status:</strong> {{ticket.status_name}}</p>
+          <p style="margin:6px 0;"><strong>Priority:</strong> {{ticket.priority_name}}</p>
+          <p style="margin:6px 0;"><strong>Created:</strong> {{ticket.created_at | date: "%b %-d, %Y"}}</p>
+          <p style="margin:6px 0;"><strong>Updated:</strong> {{ticket.updated_at | date: "%b %-d, %Y"}}</p>
+        </div>
+        <div class="ct-card" style="margin-top:16px;background:var(--ct-sand);">
+          <h3 style="font-size:1.1rem;">Need to start over?</h3>
+          <p>Open a separate request for a new issue.</p>
+          <p style="margin-top:12px;">
+            <a class="ct-btn ct-btn--ghost" href="/support/tickets/new">New request</a>
+          </p>
+        </div>
+      </aside>
+    </div>
+
+  </div>
+</section>

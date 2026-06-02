@@ -1,0 +1,30 @@
+<!-- ============================================================================
+     CozyThreads — Category page (lists folders inside a solution category)
+     Paste into:  Customize → Pages → Category page
+     ========================================================================= -->
+<section class="ct-section">
+  <div class="ct-container">
+
+    <ul class="ct-breadcrumb">
+      <li><a href="/support/home">Help Center</a></li>
+      <li><a href="/support/solutions">Knowledge Base</a></li>
+      <li>{{category.name}}</li>
+    </ul>
+
+    <span class="ct-eyebrow">Category</span>
+    <h1 class="ct-h" style="font-size:2.2rem;margin:0 0 8px;">{{category.name}}</h1>
+    <p style="color:var(--ct-muted);max-width:640px;">{{category.description}}</p>
+
+    <div class="ct-grid" style="margin-top:32px;">
+      {% for folder in category.folders %}
+        <a class="ct-card" href="{{folder.url}}">
+          <span class="ct-card__icon">📁</span>
+          <h3>{{folder.name}}</h3>
+          <p>{{folder.description}}</p>
+          <span class="ct-card__meta">{{folder.articles_count}} articles →</span>
+        </a>
+      {% endfor %}
+    </div>
+
+  </div>
+</section>

@@ -1,0 +1,45 @@
+<!-- ============================================================================
+     CozyThreads — Search results page
+     Paste into:  Customize → Pages → Search results page
+     ========================================================================= -->
+<section class="ct-section">
+  <div class="ct-container">
+
+    <form class="ct-search" action="/support/search" method="get" role="search"
+          style="margin:0 0 32px;">
+      <span class="ct-search__icon">🔍</span>
+      <input type="search" name="term" value="{{search.term}}"
+             placeholder="Search for help…" aria-label="Search the help center">
+    </form>
+
+    <span class="ct-eyebrow">Search</span>
+    <h1 class="ct-h" style="font-size:1.8rem;margin:0 0 24px;">
+      Results for “{{search.term}}”
+    </h1>
+
+    {% if search.results.size > 0 %}
+      <div class="ct-table-wrap" style="padding:8px 18px;">
+        <ul class="ct-article-list">
+          {% for result in search.results %}
+            <li>
+              <a href="{{result.url}}">
+                <span class="ct-doc-icon">📄</span>
+                <span>{{result.title}}</span>
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% else %}
+      <div class="ct-empty">
+        <span class="ct-empty__emoji">🧶</span>
+        <h3 class="ct-h">No results for “{{search.term}}”</h3>
+        <p>Try different keywords, or reach out and we'll help directly.</p>
+        <p style="margin-top:16px;">
+          <a class="ct-btn" href="/support/tickets/new">Contact support</a>
+        </p>
+      </div>
+    {% endif %}
+
+  </div>
+</section>

@@ -1,0 +1,70 @@
+<!-- ============================================================================
+     CozyThreads — Home page
+     Paste into:  Customize → Pages → Home page
+     ========================================================================= -->
+
+<!-- Hero with search -->
+<section class="ct-hero">
+  <div class="ct-container">
+    <h1>How can we help you get cozy?</h1>
+    <p>Search our help center for answers on orders, returns, sizing, and care —
+       or browse the topics below.</p>
+
+    <!-- FRESHDESK: search form. action posts to the portal search results page. -->
+    <form class="ct-search" action="/support/search" method="get" role="search">
+      <span class="ct-search__icon">🔍</span>
+      <input type="search" name="term" placeholder="Search for help…"
+             aria-label="Search the help center" autocomplete="off">
+    </form>
+  </div>
+</section>
+
+<!-- Solution categories -->
+<section class="ct-section">
+  <div class="ct-container">
+    <div class="ct-section__head">
+      <div>
+        <span class="ct-eyebrow">Knowledge Base</span>
+        <h2>Browse by topic</h2>
+      </div>
+      <a class="ct-btn ct-btn--ghost" href="/support/solutions">View all</a>
+    </div>
+
+    <div class="ct-grid">
+      {% for category in portal.solution_categories %}
+        <a class="ct-card" href="{{category.url}}">
+          <span class="ct-card__icon">📦</span>
+          <h3>{{category.name}}</h3>
+          <p>{{category.description}}</p>
+          <span class="ct-card__meta">
+            {{category.folders_count}} folders →
+          </span>
+        </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- Quick actions -->
+<section class="ct-section" style="padding-top:0;">
+  <div class="ct-container">
+    <div class="ct-grid" style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr));">
+      <div class="ct-card" style="background:var(--ct-sand);">
+        <span class="ct-card__icon">✉️</span>
+        <h3>Still need a hand?</h3>
+        <p>Send us a message and our team will get back to you, usually within a day.</p>
+        <p style="margin-top:16px;">
+          <a class="ct-btn" href="/support/tickets/new">Contact us</a>
+        </p>
+      </div>
+      <div class="ct-card" style="background:var(--ct-sand);">
+        <span class="ct-card__icon">🧾</span>
+        <h3>Track your requests</h3>
+        <p>Check the status of an order issue or support ticket you've already opened.</p>
+        <p style="margin-top:16px;">
+          <a class="ct-btn ct-btn--ghost" href="/support/tickets">My tickets</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

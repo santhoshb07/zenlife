@@ -1,0 +1,51 @@
+<!-- ============================================================================
+     CozyThreads — Ticket list page (a signed-in customer's requests)
+     Paste into:  Customize → Pages → Ticket list page
+     ========================================================================= -->
+<section class="ct-section">
+  <div class="ct-container">
+
+    <div class="ct-section__head">
+      <div>
+        <span class="ct-eyebrow">Your account</span>
+        <h1 class="ct-h" style="font-size:2rem;margin:0;">My tickets</h1>
+      </div>
+      <a class="ct-btn" href="/support/tickets/new">+ New request</a>
+    </div>
+
+    {% if tickets.size > 0 %}
+      <div class="ct-table-wrap">
+        <table class="ct-table">
+          <thead>
+            <tr>
+              <th>Subject</th>
+              <th>Ref #</th>
+              <th>Status</th>
+              <th>Last updated</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for ticket in tickets %}
+              <tr>
+                <td><a href="{{ticket.url}}">{{ticket.subject}}</a></td>
+                <td style="color:var(--ct-muted);">#{{ticket.id}}</td>
+                <td><span data-ct-status="{{ticket.status_name}}">{{ticket.status_name}}</span></td>
+                <td style="color:var(--ct-muted);">{{ticket.updated_at | date: "%b %-d, %Y"}}</td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    {% else %}
+      <div class="ct-empty">
+        <span class="ct-empty__emoji">🧵</span>
+        <h3 class="ct-h">No requests yet</h3>
+        <p>When you contact us, your tickets will show up here so you can track them.</p>
+        <p style="margin-top:16px;">
+          <a class="ct-btn" href="/support/tickets/new">Submit a request</a>
+        </p>
+      </div>
+    {% endif %}
+
+  </div>
+</section>

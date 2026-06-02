@@ -1,0 +1,65 @@
+<!-- ============================================================================
+     CozyThreads — Article page (single KB article)
+     Paste into:  Customize → Pages → Article page
+     ========================================================================= -->
+<section class="ct-section">
+  <div class="ct-container">
+
+    <ul class="ct-breadcrumb">
+      <li><a href="/support/home">Help Center</a></li>
+      <li><a href="{{article.category.url}}">{{article.category.name}}</a></li>
+      <li><a href="{{article.folder.url}}">{{article.folder.name}}</a></li>
+      <li>{{article.title}}</li>
+    </ul>
+
+    <div class="ct-article">
+      <!-- Main column -->
+      <article class="ct-article__body">
+        <h1>{{article.title}}</h1>
+        <div class="ct-article__meta">
+          Updated {{article.updated_at | date: "%B %-d, %Y"}}
+          · {{article.views_count}} views
+        </div>
+
+        <!-- FRESHDESK: rich-text article body (HTML) -->
+        <div class="ct-article__content">
+          {{{article.description}}}
+        </div>
+
+        <!-- Helpful? -->
+        <div class="ct-feedback">
+          <h4>Was this article helpful?</h4>
+          <button class="ct-btn" data-ct-feedback>👍 Yes</button>
+          <button class="ct-btn ct-btn--ghost" data-ct-feedback>👎 Not really</button>
+        </div>
+      </article>
+
+      <!-- Sidebar -->
+      <aside class="ct-aside">
+        <div class="ct-card">
+          <h3 style="font-size:1.1rem;">Need more help?</h3>
+          <p>Can't find what you're looking for? We're happy to help.</p>
+          <p style="margin-top:14px;">
+            <a class="ct-btn" href="/support/tickets/new">Contact support</a>
+          </p>
+        </div>
+
+        {% if article.folder.articles %}
+        <div class="ct-card" style="margin-top:16px;">
+          <h3 style="font-size:1.1rem;">Related articles</h3>
+          <ul class="ct-article-list">
+            {% for related in article.folder.articles limit:5 %}
+              {% unless related.id == article.id %}
+                <li><a href="{{related.url}}" style="padding:10px 4px;">
+                  {{related.title}}
+                </a></li>
+              {% endunless %}
+            {% endfor %}
+          </ul>
+        </div>
+        {% endif %}
+      </aside>
+    </div>
+
+  </div>
+</section>

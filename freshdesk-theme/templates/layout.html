@@ -1,0 +1,97 @@
+<!-- ============================================================================
+     CozyThreads — Freshdesk Portal Theme  ·  LAYOUT (master template)
+     Paste into:  Admin → Channels → Portals → Customize → Pages → Layout
+     The {{{pageContent}}} slot is where every other page renders.
+     ========================================================================= -->
+<!DOCTYPE html>
+<html lang="{{portal.language}}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{page_title}} · {{portal.name}}</title>
+  {{{header}}}<!-- FRESHDESK: required head assets (portal CSS/JS, meta) -->
+</head>
+<body>
+
+  <!-- ===================== HEADER ===================== -->
+  <header class="ct-header">
+    <div class="ct-container ct-header__inner">
+      <a class="ct-logo" href="/support/home" aria-label="{{portal.name}} home">
+        {% if portal.logo_url %}
+          <img src="{{portal.logo_url}}" alt="{{portal.name}}">
+        {% else %}
+          <span class="ct-logo__mark">🧶</span>
+          <span>CozyThreads</span>
+        {% endif %}
+      </a>
+
+      <button class="ct-nav__toggle" aria-label="Menu" aria-expanded="false">☰</button>
+
+      <ul class="ct-nav">
+        <li><a href="/support/home">Help Center</a></li>
+        <li><a href="/support/solutions">Knowledge Base</a></li>
+        <li><a href="/support/tickets/new">Contact Us</a></li>
+        {% if portal.current_user %}
+          <li><a href="/support/tickets">My Tickets</a></li>
+          <li><a href="/support/logout" class="ct-btn ct-btn--ghost">Sign out</a></li>
+        {% else %}
+          <li><a href="/support/login" class="ct-btn">Sign in</a></li>
+        {% endif %}
+      </ul>
+    </div>
+  </header>
+
+  <!-- ===================== PAGE BODY ===================== -->
+  <main>
+    {{{pageContent}}}<!-- FRESHDESK: the active page (home/article/etc.) renders here -->
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="ct-footer">
+    <div class="ct-container">
+      <div class="ct-footer__cols">
+        <div>
+          <div class="ct-logo" style="color:var(--ct-cream)">
+            <span class="ct-logo__mark">🧶</span><span>CozyThreads</span>
+          </div>
+          <p style="opacity:.75;margin-top:12px;max-width:280px;">
+            Soft goods, made to last. We're here to help with orders, returns,
+            sizing, and care.
+          </p>
+        </div>
+        <div>
+          <h4>Shop</h4>
+          <ul>
+            <li><a href="https://cozythreads.example.com/new">New Arrivals</a></li>
+            <li><a href="https://cozythreads.example.com/best">Best Sellers</a></li>
+            <li><a href="https://cozythreads.example.com/sale">Sale</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Support</h4>
+          <ul>
+            <li><a href="/support/solutions">Knowledge Base</a></li>
+            <li><a href="/support/tickets/new">Submit a Request</a></li>
+            <li><a href="/support/tickets">Track a Ticket</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Company</h4>
+          <ul>
+            <li><a href="https://cozythreads.example.com/about">About Us</a></li>
+            <li><a href="https://cozythreads.example.com/shipping">Shipping &amp; Returns</a></li>
+            <li><a href="https://cozythreads.example.com/contact">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="ct-footer__bottom">
+        <span>© {{ 'now' | date: "%Y" }} CozyThreads. All rights reserved.</span>
+        <span>Powered with care 🧵</span>
+      </div>
+    </div>
+  </footer>
+
+  {{{footer}}}<!-- FRESHDESK: required closing scripts. Keep this. -->
+  <!-- Paste assets/js/theme.js contents here, or load via <script src> -->
+</body>
+</html>
