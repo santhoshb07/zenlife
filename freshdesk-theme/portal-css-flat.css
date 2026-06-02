@@ -1,0 +1,213 @@
+/* CozyThreads portal CSS — flat, validator-safe (no CSS variables, no font import, no Liquid). */
+
+/* ---- Typography --------------------------------------------------------- */
+body,
+.fw-main-wrapper,
+p, li, a, span, input, textarea, select, button, .card-body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+}
+h1, h2, h3, h4, h5,
+.fw-page-title,
+.card-title,
+.fw-section-heading h2,
+.fw-section-heading h3 {
+  font-family: Georgia, "Times New Roman", serif !important;
+  letter-spacing: -0.01em;
+  color: #3a2e28;
+}
+body { color: #3a2e28; }
+
+/* ---- Page + main canvas ------------------------------------------------- */
+body,
+.fw-main-wrapper { background: #fbf6ef; }
+
+/* ---- Top navigation ----------------------------------------------------- */
+.fw-nav-wrapper,
+.fw-nav-wrapper .bg-light {
+  background: #fff9f2 !important;
+  border-bottom: 1px solid #ece0d3;
+}
+.navbar .nav-link {
+  color: #3a2e28;
+  font-weight: 500;
+  border-radius: 999px;
+  transition: background .15s ease, color .15s ease;
+}
+.navbar .nav-link:hover,
+.navbar .nav-item.active .nav-link {
+  color: #8c3b23;
+  background: #fbf6ef;
+}
+
+/* ---- Hero / help-center banner ----------------------------------------- */
+.fw-helpcenter {
+  background: radial-gradient(1200px 420px at 82% -20%, rgba(224,164,88, 0.35), transparent 60%), linear-gradient(135deg, #c75b39, #8c3b23) !important; padding-top: 64px;
+  padding-bottom: 96px;
+  border-radius: 0 0 28px 28px;
+}
+.fw-helpcenter h1,
+.fw-helpcenter .fw-page-title { color: #fff; }
+
+/* Search box (portal search element) */
+.fw-helpcenter input[type="text"],
+.fw-helpcenter input[type="search"],
+.fw-searchbar-wrapper input[type="text"],
+.fw-searchbar-wrapper input[type="search"] {
+  border-radius: 999px !important;
+  border: 1.5px solid transparent;
+  box-shadow: 0 4px 18px rgba(140,59,35,0.08);
+  padding-left: 20px;
+}
+.fw-searchbar-wrapper {
+  background: #fff9f2;
+  border-bottom: 1px solid #ece0d3;
+}
+
+/* ---- Cards (home cards, KB cards, forum cards) ------------------------- */
+.card,
+.fw-kbase-card,
+.fw-horizontal {
+  background: #fff;
+  border: 1px solid #ece0d3 !important;
+  border-radius: 14px !important;
+  box-shadow: 0 4px 18px rgba(140,59,35,0.08);
+  transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+}
+.card:hover,
+.fw-kbase-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px rgba(140,59,35,0.16);
+  border-color: rgba(199,91,57, 0.4) !important;
+}
+.card-title { color: #3a2e28; }
+.card-body p { color: #7a6a5f; }
+
+/* Category / card icon chips */
+.fw-category-icon,
+.fw-icon-holder {
+  color: #c75b39;
+}
+.fw-category-icon {
+  background: #fbf6ef;
+  border-radius: 14px;
+}
+
+/* ---- Section headings --------------------------------------------------- */
+.fw-section-heading h2,
+.fw-section-heading h3 { color: #3a2e28; }
+.fw-section-heading a { color: #c75b39; font-weight: 600; }
+.fw-section-heading a:hover { color: #8c3b23; }
+
+/* ---- Solution category blocks ------------------------------------------ */
+.fw-category-wrapper {
+  background: #fff !important;
+  border: 1px solid #ece0d3;
+  border-radius: 14px !important;
+  box-shadow: 0 4px 18px rgba(140,59,35,0.08);
+}
+.fw-folder .fw-heading,
+.fw-article { color: #3a2e28; }
+.fw-folder .fw-heading:hover,
+.fw-article:hover { color: #8c3b23; }
+
+/* ---- Article / ticket content wrappers --------------------------------- */
+.fw-wrapper-shadow {
+  background: #fff !important;
+  border: 1px solid #ece0d3;
+  border-radius: 14px !important;
+  box-shadow: 0 4px 18px rgba(140,59,35,0.08);
+}
+.fw-content { color: #3a2e28; line-height: 1.75; }
+.fw-content h1, .fw-content h2, .fw-content h3 { font-family: Georgia, "Times New Roman", serif !important; }
+.fw-content pre, .fw-content code {
+  background: #fbf6ef;
+  border-radius: 8px;
+}
+.fw-content blockquote {
+  border-left: 4px solid #e0a458;
+  background: #fff9f2;
+  border-radius: 0 8px 8px 0;
+  padding: 4px 18px;
+  color: #7a6a5f;
+}
+.fw-sidebar,
+aside.bg-grey {
+  background: #fff9f2 !important;
+  border-radius: 14px;
+  border: 1px solid #ece0d3;
+}
+
+/* ---- Buttons ------------------------------------------------------------ */
+.btn-primary {
+  background: #c75b39 !important;
+  border-color: #c75b39 !important;
+  border-radius: 999px !important;
+  font-weight: 600;
+  box-shadow: 0 4px 18px rgba(140,59,35,0.08);
+  transition: transform .12s ease, background .15s ease, box-shadow .15s ease;
+}
+.btn-primary:hover,
+.btn-primary:focus {
+  background: #8c3b23 !important;
+  border-color: #8c3b23 !important;
+  transform: translateY(-1px);
+  box-shadow: 0 12px 32px rgba(140,59,35,0.16);
+}
+.btn-outline-primary {
+  color: #c75b39 !important;
+  border-color: #ece0d3 !important;
+  border-radius: 999px !important;
+  font-weight: 600;
+}
+.btn-outline-primary:hover {
+  background: #fff9f2 !important;
+  color: #8c3b23 !important;
+  border-color: #c75b39 !important;
+}
+.btn { border-radius: 999px; }
+
+/* ---- Forms (new ticket, login, signup) --------------------------------- */
+.form-control,
+input[type="text"], input[type="email"], input[type="password"],
+textarea, select {
+  border-radius: 10px !important;
+  border: 1.5px solid #ece0d3;
+  transition: border-color .15s ease, box-shadow .15s ease;
+}
+.form-control:focus,
+input:focus, textarea:focus, select:focus {
+  border-color: #c75b39 !important;
+  box-shadow: 0 0 0 4px rgba(199,91,57, 0.12) !important;
+}
+label { color: #3a2e28; font-weight: 600; }
+
+/* ---- Links -------------------------------------------------------------- */
+a { color: #c75b39; }
+a:hover { color: #8c3b23; }
+
+/* ---- Page title band (sub-pages) --------------------------------------- */
+.fw-page-title-wrapper { background: #fff9f2; }
+.fw-page-title-wrapper .fw-page-title { color: #3a2e28; }
+.fw-page-title-wrapper .fw-icon-holder { color: #c75b39; }
+
+/* ---- Tables (ticket lists) --------------------------------------------- */
+.table thead th {
+  background: #fff9f2;
+  color: #7a6a5f;
+  text-transform: uppercase;
+  font-size: .78rem;
+  letter-spacing: .05em;
+  border-color: #ece0d3;
+}
+.table td { border-color: #ece0d3; }
+.table tbody tr:hover { background: #fbf6ef; }
+
+/* ---- Soft section backgrounds ------------------------------------------ */
+.bg-light { background: #fff9f2 !important; }
+
+/* ---- Footer ------------------------------------------------------------- */
+footer { background: #3a2e28; }
+footer, footer p, footer a, .fw-contacts, .fw-laws, .fw-credit {
+  color: #fbf6ef !important;
+}
+footer a:hover { color: #e0a458 !important; }
